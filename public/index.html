@@ -21,13 +21,18 @@
             console.log('Perdimos la comunicacion con el servidor');
         });
 
-        socket.emit('mensaje',{nombnre:'Ferando'});
+        //socket.emit('mensaje',{nombre:'Ferando'}); //Este es un mensaje que se envia a todos
 
-        socket.on('mensaje',function(payload){
+        /*socket.on('nuevo-mensaje',function(payload){
             console.log('Escuchando: ' ,payload);
-        }); // Esto se hace en el html // socket.on es para emitir un mensaje personalizado
-
-    
+         });*/ // Esto se hace en el html // socket.on es para emitir un mensaje personalizado
+        
+        socket.on('active-bands',function(bands){
+            console.clear();
+            console.table(bands);
+        })
+         
+    //El 'nuevo-mensaje' debe siempre ser iugal tanto aca como en status.dart
     </script>
 </body>
 </html>
